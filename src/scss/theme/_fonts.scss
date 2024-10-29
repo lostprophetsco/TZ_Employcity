@@ -1,1 +1,36 @@
-/* stylelint-disable */
+@font-face {
+	font-family: Lato-Regular;
+	font-style: normal;
+	font-weight: 400;
+	src: url("../../fonts/Lato-Regular.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Lato-SemiBold;
+	font-style: normal;
+	font-weight: 600;
+	src: url("../../fonts/Lato-SemiBold.woff2") format("woff2");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Lato-Bold;
+	font-style: normal;
+	font-weight: 700;
+	src: url("../../fonts/Lato-Bold.woff2") format("woff2");
+	font-display: swap; 
+}
+
+@font-face {
+	font-family: Lato-Heavy;
+	font-style: normal;
+	font-weight: 900;
+	src: url("../../fonts/Lato-Black.woff2") format("woff2");
+	font-display: swap;
+}
+
+
+
+
+
