@@ -1,0 +1,366 @@
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1212px;
+$break-xxl: 1600px;
+
+@mixin sm() {
+  @media screen and (min-width: $break-sm) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media screen and (min-width: $break-md) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media screen and (min-width: $break-lg) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media screen and (min-width: $break-xl) {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @media screen and (min-width: $break-xxl) {
+    @content;
+  }
+}
+
+@mixin grid-settings() {
+  --container: 100%;
+  --debug-container: '100%';
+  --fields: 15px;
+  --debug-fields: '15px';
+  --gap: 15px;
+  --debug-gap: '15px';
+  --debug-breakpoint: 'null';
+
+  @include sm {
+    --container: 100%;
+    --debug-container: '100%';
+    --debug-breakpoint: 'sm';
+    --fields: 20px;
+    --debug-fields: '20px';
+    --gap: 20px;
+    --debug-gap: '20px';
+  }
+
+  @include md {
+    --container: 100%;
+    --debug-container: '100%';
+    --debug-breakpoint: 'md';
+  }
+
+  @include lg {
+    --container: 100%;
+    --debug-container: '100%';
+    --debug-breakpoint: 'lg';
+  }
+
+  @include xl {
+    --container: 1212px;
+    --debug-container: '1212px';
+    --debug-breakpoint: 'xl';
+    --gap: 30px;
+    --debug-gap: '30px';
+  }
+}
+
+@mixin grid-container() {
+  @include grid-container-fluid;
+
+  max-width: var(--container);
+  margin: 0 auto;
+
+  @extend %grid-debug !optional;
+}
+
+@mixin grid-container-fluid() {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding-right: var(--fields);
+  padding-left: var(--fields);
+
+  @extend %grid-debug !optional;
+}
+
+@mixin debug(
+  $columns,
+  $columns-sm: null,
+  $columns-md: null,
+  $columns-lg: null,
+  $columns-xl: null,
+  $columns-xxl: null
+) {
+  %grid-debug {
+    --columns: #{$columns};
+    --grid-column-width: calc((100% - var(--gap) * var(--columns)) / var(--columns));
+    --grid-column-width-gap: calc(var(--grid-column-width) + var(--gap));
+    --grid-column-half-width-gap: calc(var(--grid-column-width) + var(--gap) / 2);
+    --half-gap: calc(var(--gap) / 2);
+    --grid-color: rgb(255 0 0 / 20%);
+    --padding-color: #6ccc7e73;
+    --heading-hint: 'BreakPoint: ' var(--debug-breakpoint) '; Container: ' var(--debug-container)
+      '; Fields: ' var(--debug-fields) '; ' 'Gap: ' var(--debug-gap);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 9999;
+      height: calc(100% - 30px);
+      padding: 5px var(--fields) 25px;
+      font-family: system-ui;
+      font-size: 20px;
+      font-weight: 500;
+      color: #00000080;
+      text-align: center;
+      pointer-events: none;
+      content: var(--heading-hint);
+      counter-reset: variable var(--columns);
+      background-image: repeating-linear-gradient(
+        to left,
+        transparent 0,
+        transparent var(--half-gap),
+        var(--grid-color) var(--half-gap),
+        var(--grid-color) var(--grid-column-half-width-gap),
+        transparent var(--grid-column-half-width-gap),
+        transparent var(--grid-column-width-gap)
+      );
+      background-repeat: space;
+      border: solid transparent;
+      border-width: 0 calc(var(--fields) - var(--gap) / 2);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      width: 100%;
+      height: calc(100% - 20px);
+      padding-top: 20px;
+      font-family: system-ui;
+      font-size: 13px;
+      font-weight: 500;
+      color: #00000080;
+      text-align: center;
+      pointer-events: none;
+      content: counter(variable) ' columns grid';
+      background-image: linear-gradient(
+          to left,
+          var(--padding-color) 0,
+          var(--padding-color) var(--fields)
+        ),
+        linear-gradient(to left, var(--padding-color) 0, var(--padding-color) var(--fields));
+      background-repeat: no-repeat;
+      background-position: 0 0, 100% 0;
+      background-size: var(--fields) 100%, var(--fields) 100%;
+    }
+
+    @include sm {
+      --columns: #{$columns-sm};
+    }
+
+    @include md {
+      --columns: #{$columns-md};
+    }
+
+    @include lg {
+      --columns: #{$columns-lg};
+    }
+
+    @include xl {
+      --columns: #{$columns-xl};
+    }
+
+    @include xxl {
+      --columns: #{$columns-xxl};
+    }
+  }
+}
+
+@mixin grid(
+  $columns,
+  $columns-sm: null,
+  $columns-md: null,
+  $columns-lg: null,
+  $columns-xl: null,
+  $columns-xxl: null
+) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-gap: var(--gap);
+  width: 100%;
+
+  @if $columns-sm {
+    @include sm {
+      grid-template-columns: repeat($columns-sm, 1fr);
+    }
+  }
+
+  @if $columns-md {
+    @include md {
+      grid-template-columns: repeat($columns-md, 1fr);
+    }
+  }
+
+  @if $columns-lg {
+    @include lg {
+      grid-template-columns: repeat($columns-lg, 1fr);
+    }
+  }
+
+  @if $columns-xl {
+    @include xl {
+      grid-template-columns: repeat($columns-xl, 1fr);
+    }
+  }
+
+  @if $columns-xxl {
+    @include xxl {
+      grid-template-columns: repeat($columns-xxl, 1fr);
+    }
+  }
+}
+
+@mixin theme-default() {
+  --colors-text-white: #fff;
+  --colors-text-black: #000;
+  --colors-text-gray: #bbb;
+  --colors-text-light-gray: #c3c3c3;
+  --colors-text-deep-gray: #272733;
+  --colors-text-blue: #3e9cdc;
+  --colors-text-deep-blue: #43abf0;
+  --colors-text-select-blue: #42a9ed;
+  --colors-background-white: #fff;
+  --colors-background-black: #000;
+  --colors-background-gray: #3d4050;
+  --colors-background-deep-gray: #272733;
+  --colors-background-light-gray: #c4c4c4;
+  --colors-background-blue: #3e9cdc;
+  --colors-background-deep-blue: #286690;
+  --colors-background-header-gray: #10101d;
+}
+
+@mixin fonts-family() {
+  --fonts-family-lato: lato, sans-serif;
+}
+
+@mixin fonts-size() {
+  --fonts-size-h1: clamp(30px, 5vw, 48px);
+  --fonts-size-h2: clamp(24px, 4vw, 36px);
+  --fonts-size-t1: clamp(18px, 3vw, 20px);
+  --fonts-size-t2: clamp(17px, 2.5vw, 18px);
+  --fonts-size-t3: clamp(16px, 2vw, 16px);
+  --fonts-size-t4: 13px;
+}
+
+@mixin fonts-weight() {
+  --fonts-weight-h1: 700;
+  --fonts-weight-h2: 900;
+  --fonts-weight-t1: 700;
+  --fonts-weight-t2: 400;
+  --fonts-weight-t3: 400;
+  --fonts-weight-t4: 600;
+}
+
+@mixin fonts-height() {
+  --fonts-height-h1: clamp(34px, 5vw, 52px);
+  --fonts-height-h2: clamp(28px, 4vw, 40px);
+  --fonts-height-t1: clamp(20px, 3vw, 24px);
+  --fonts-height-t2: clamp(18px, 2.5vw, 20px);
+  --fonts-height-t3: clamp(16px, 2vw, 16px);
+  --fonts-height-t4: clamp(14px, 1.5vw, 14px);
+}
+
+@mixin indents() {
+  --indents-200: 5px;
+}
+
+@mixin transition-time() {
+  --transition-time-10: 0.1s;
+  --transition-time-20: 0.2s;
+  --transition-time-30: 0.3s;
+}
+
+@mixin transition-easing() {
+  --transition-easing-linear: linear;
+  --transition-easing-ease: ease;
+  --transition-easing-easeinout: ease-in-out;
+  --transition-easing-cubicin: cubic-bezier(0.5, 0, 0, 1);
+  --transition-easing-cubicout: cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+@mixin radius() {
+  --radius-3: 3px;
+  --radius-4: 4px;
+  --radius-5: 5px;
+  --radius-50percent: 50%;
+  --radius-rounded: 99em;
+}
+
+@mixin shadow() {
+  --shadow-default: 30px 10px 30px 0px rgb(0 0 0 / 25%);
+}
+
+@mixin blur() {
+  --blur-0: blur(0px);
+}
+
+@mixin text-style-helper($name) {
+  font-size: var(--fonts-size-#{$name});
+  font-weight: var(--fonts-weight-#{$name});
+  line-height: var(--fonts-height-#{$name});
+}
+
+@mixin column-offset(
+  $offset,
+  $offset-sm: null,
+  $offset-md: null,
+  $offset-lg: null,
+  $offset-xl: null,
+  $offset-xxl: null
+) {
+  grid-column: $offset;
+
+  @if $offset-sm {
+    @include sm {
+      grid-column: $offset-sm;
+    }
+  }
+
+  @if $offset-md {
+    @include md {
+      grid-column: $offset-md;
+    }
+  }
+
+  @if $offset-lg {
+    @include lg {
+      grid-column: $offset-lg;
+    }
+  }
+
+  @if $offset-xl {
+    @include xl {
+      grid-column: $offset-xl;
+    }
+  }
+
+  @if $offset-xxl {
+    @include xxl {
+      grid-column: $offset-xxl;
+    }
+  }
+}
