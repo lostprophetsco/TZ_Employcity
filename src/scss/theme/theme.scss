@@ -254,7 +254,7 @@ $break-xxl: 1600px;
 }
 
 @mixin fonts-family() {
-  --fonts-family-lato: lato, sans-serif;
+  --fonts-family-lato: lato;
 }
 
 @mixin fonts-size() {

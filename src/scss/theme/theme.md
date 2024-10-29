@@ -117,7 +117,7 @@ CSS переменные темы `theme-default`:
 CSS переменные миксина `fonts-family`:
 
 ```
---fonts-family-lato: Lato, sans-serif;
+--fonts-family-lato: Lato;
 
 ```
 #### Fonts Size
