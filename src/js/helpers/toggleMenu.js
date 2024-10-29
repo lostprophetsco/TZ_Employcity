@@ -5,7 +5,7 @@ const toggleMenu = (activatorClass, menuClass) => {
   activator.addEventListener('click', () => {
     menu.classList.toggle(`${menuClass}--active`);
     activator.classList.toggle(`${activatorClass}--active`);
-    activator.setAttribute('aria-expanded', 'true');
+    activator.setAttribute('aria-expanded', menu.classList.contains(`${menuClass}--active`));
   });
 };
 
