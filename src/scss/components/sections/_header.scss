@@ -1,0 +1,38 @@
+@use '../../theme/theme' as theme;
+
+.header {
+  position: relative;
+  padding: 20px 0;
+  background-color: rgb(16 16 29 / 90%);
+
+  @include theme.md {
+    padding: 33px 0;
+  }
+
+  // .header__container
+  &__container {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // .header__logo
+  &__logo {
+    margin-right: auto;
+  }
+
+  // .header__nav
+  &__nav {
+    margin-left: auto;
+  }
+
+  // .header__hamburger
+  &__hamburger {
+    display: block;
+
+    @include theme.md {
+      display: none;
+    }
+  }
+}
