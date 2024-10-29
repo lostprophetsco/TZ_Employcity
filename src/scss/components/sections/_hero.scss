@@ -1,0 +1,91 @@
+@use '../../theme/theme' as theme;
+@use '../../mixins' as mixins;
+
+$hero-bg: url('../../../images/css/hero.png');
+$hero-bg-webp: url('../../../images/css/hero.webp');
+$hero-bg-avif: url('../../../images/css/hero.avif');
+
+// Тут могли бы быть изображения под мобильную̆ версию, но их нет (((
+
+.hero {
+  padding: calc(var(--header-height) + clamp(100px, 5vw, 200px)) 0 clamp(100px, 7vw, 340px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include mixins.image-set($hero-bg, $hero-bg-webp, $hero-bg-avif);
+
+
+  // .hero__container
+  &__container {
+    display: flex;
+    flex-flow: column;
+    gap: 30px;
+
+    @include theme.md {
+      gap: 80px;
+    }
+  }
+
+  // .hero__title
+  &__title {
+    color: var(--colors-text-black);
+    text-transform: uppercase;
+
+    @include theme.text-style-helper(h1);
+
+    @include theme.md {
+      max-width: 70%;
+    }
+
+    // .hero__title span
+    span {
+      color: var(--colors-text-blue);
+    }
+  }
+
+  // .hero__text
+  &__text {
+    color: var(--colors-text-black);
+
+    @include theme.text-style-helper(t1);
+  }
+
+  // .hero__list
+  &__list {
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+    padding-left: 10px;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+
+  // .hero__list-item
+  &__list-item {
+    position: relative;
+    padding-left: 1.4ch;
+
+    // .hero__list-item::before
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1ch;
+      height: 1ch;
+      content: '-';
+    }
+  }
+
+  // .hero__buttons
+  &__buttons {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+
+    @include theme.md {
+      gap: 30px;
+      justify-content: flex-start;
+    }
+  }
+}

@@ -1,7 +1,10 @@
 @use '../../theme/theme' as theme;
 
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
   padding: 20px 0;
   background-color: rgb(16 16 29 / 90%);
 
