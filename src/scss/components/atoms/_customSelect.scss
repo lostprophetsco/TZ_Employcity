@@ -1,0 +1,108 @@
+$select-items: '.select-items';
+
+.custom-select {
+  position: relative;
+
+  // .custom-select select
+  select {
+    display: none;
+  }
+}
+
+.select-selected {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+  color: var(--colors-text-black);
+  background-color: rgb(255 255 255 / 80%);
+	border: 1px var(--colors-background-white) solid;
+	border-radius: var(--radius-3);
+  transition: all var(--transition-time-20) var(--transition-easing-easeinout);
+
+  // .select-selected::after
+  &::after {
+    width: 9px;
+    height: 9px;
+    content: '';
+    border: 2px var(--colors-text-black) solid;
+    border-top: 0;
+    border-right: 0;
+    transition: all var(--transition-time-20) var(--transition-easing-easeinout);
+    transform: rotate(-45deg) translateY(-50%);
+    transform-origin: center center;
+  }
+
+  // .select-selected.select-arrow-active
+  &.select-arrow-active {
+    color: var(--colors-text-white);
+    background-color: rgb(61 64 80 / 85%);
+		border: 1px var(--colors-background-gray) solid;
+		border-bottom-color: transparent;
+		border-radius: var(--radius-3) var(--radius-3) 0 0;
+
+    // .select-selected.select-arrow-active::after
+    &::after {
+      border-color: var(--colors-text-white);
+      transform: rotate(-45deg) scale(-1, -1) translateY(0%) translateX(50%);
+    }
+
+		& + #{$select-items} {
+			border: 1px var(--colors-background-gray) solid;
+			border-top: none;
+		}
+  }
+}
+
+.select-items {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  max-height: 180px;
+  overflow-y: auto;
+	border: 1px transparent;
+	border-top: none;
+	border-radius: 0 0 var(--radius-3) var(--radius-3);
+
+  // .select-items::-webkit-scrollbar
+  &::-webkit-scrollbar {
+    width: 7px;
+    cursor: pointer;
+  }
+
+  // .select-items::-webkit-scrollbar-track
+  &::-webkit-scrollbar-track {
+    background: var(--colors-background-gray);
+  }
+
+  // .select-items::-webkit-scrollbar-thumb
+  &::-webkit-scrollbar-thumb {
+    background: var(--colors-background-blue);
+    border-radius: var(--radius-3);
+
+    // .select-items::-webkit-scrollbar-thumb:hover,
+    // .select-items::-webkit-scrollbar-thumb:active
+    &:hover,
+    &:active {
+      background: var(--colors-background-deep-blue);
+    }
+  }
+
+  // .select-items div
+	& > div {
+		padding: 12px 10px;
+		background-color: var(--colors-background-deep-gray);
+	}
+}
+
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  color: var(--colors-text-blue);
+}
