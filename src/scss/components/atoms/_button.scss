@@ -1,7 +1,7 @@
 @use '../../theme/theme' as theme;
 
 .button {
-	display: inline-flex;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 15px 30px;
@@ -36,6 +36,31 @@
 		// .button--white:hover, .button--white:focus
 		&:hover, &:focus {
 			background: var(--colors-background-light-gray);
+		}
+	}
+
+	// .button--has-icon
+	&--has-icon {
+		gap: 10px;
+		padding: 14px 29px;
+		color: var(--colors-text-black);
+		background-color: var(--colors-background-white);
+		border: 2px var(--colors-background-blue) solid;
+
+		@include theme.md {
+			padding: 14px 59px;
+		}
+
+		// .button--has-icon > svg
+		svg {
+			display: block;
+			width: auto;
+			max-height: var(--fonts-height-t4);
+		}
+
+		// .button--has-icon:hover, .button--has-icon:focus
+		&:hover, &:focus {
+			background-color: var(--colors-background-blue);
 		}
 	}
 }
