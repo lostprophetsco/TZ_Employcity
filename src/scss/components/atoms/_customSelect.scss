@@ -1,7 +1,11 @@
+@use '../../theme/theme' as theme;
+
 $select-items: '.select-items';
 
 .custom-select {
   position: relative;
+
+	@include theme.text-style-helper(t2);
 
   // .custom-select select
   select {
@@ -16,6 +20,7 @@ $select-items: '.select-items';
   justify-content: space-between;
   padding: 12px 10px;
   color: var(--colors-text-black);
+	cursor: pointer;
   background-color: rgb(255 255 255 / 80%);
 	border: 1px var(--colors-background-white) solid;
 	border-radius: var(--radius-3);
@@ -105,4 +110,5 @@ $select-items: '.select-items';
 .select-items div:hover,
 .same-as-selected {
   color: var(--colors-text-blue);
+	cursor: pointer;
 }
