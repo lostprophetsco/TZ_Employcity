@@ -1,10 +1,10 @@
 @use '../../theme/theme' as theme;
 @use '../../mixins' as mixins;
 
-$hero-bg: url('../../../images/css/hero.png');
+$hero-bg: url('../../../images/css/hero.jpg');
 $hero-bg-webp: url('../../../images/css/hero.webp');
 $hero-bg-avif: url('../../../images/css/hero.avif');
-$hero-mobile: url('../../../images/css/hero-mobile.png');
+$hero-mobile: url('../../../images/css/hero-mobile.jpg');
 $hero-mobile-webp: url('../../../images/css/hero-mobile.webp');
 $hero-mobile-avif: url('../../../images/css/hero-mobile.avif');
 
