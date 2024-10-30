@@ -128,11 +128,15 @@ CSS переменные миксина `fonts-family`:
 CSS переменные миксина `fonts-size`:
 
 ```
---fonts-size-h1: clamp(30px, 5vw, 48px);
---fonts-size-h2: clamp(24px, 4vw, 36px);
---fonts-size-t1: clamp(18px, 3vw, 20px);
---fonts-size-t2: clamp(17px, 2.5vw, 18px);
---fonts-size-t3: clamp(16px, 2vw, 16px);
+--fonts-size-h1: 30px;
+  md: 48px;
+--fonts-size-h2: 24px;
+  md: 36px;
+--fonts-size-t1: 18px;
+  md: 20px;
+--fonts-size-t2: 17px;
+  md: 18px;
+--fonts-size-t3: 16px;
 --fonts-size-t4: 13px;
 
 ```
@@ -160,12 +164,16 @@ CSS переменные миксина `fonts-weight`:
 CSS переменные миксина `fonts-height`:
 
 ```
---fonts-height-h1: clamp(34px, 5vw, 52px);
---fonts-height-h2: clamp(28px, 4vw, 40px);
---fonts-height-t1: clamp(20px, 3vw, 24px);
---fonts-height-t2: clamp(18px, 2.5vw, 20px);
---fonts-height-t3: clamp(16px, 2vw, 16px);
---fonts-height-t4: clamp(14px, 1.5vw, 14px);
+--fonts-height-h1: 34px;
+  md: 52px;
+--fonts-height-h2: 28px;
+  md: 40px;
+--fonts-height-t1: 20px;
+  md: 24px;
+--fonts-height-t2: 18px;
+  md: 20px;
+--fonts-height-t3: 16px;
+--fonts-height-t4: 14px;
 
 ```
 ### Indents

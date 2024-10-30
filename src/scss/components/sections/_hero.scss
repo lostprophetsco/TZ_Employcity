@@ -4,16 +4,29 @@
 $hero-bg: url('../../../images/css/hero.png');
 $hero-bg-webp: url('../../../images/css/hero.webp');
 $hero-bg-avif: url('../../../images/css/hero.avif');
+$hero-mobile: url('../../../images/css/hero-mobile.png');
+$hero-mobile-webp: url('../../../images/css/hero-mobile.webp');
+$hero-mobile-avif: url('../../../images/css/hero-mobile.avif');
 
 // Тут могли бы быть изображения под мобильную̆ версию, но их нет (((
 
 .hero {
-  padding: calc(var(--header-height) + clamp(100px, 5vw, 200px)) 0 clamp(100px, 7vw, 340px);
+  padding: 120px 0 50px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  @include mixins.image-set($hero-bg, $hero-bg-webp, $hero-bg-avif);
+  @include mixins.image-set($hero-mobile, $hero-mobile-webp, $hero-mobile-avif);
+
+  @include theme.md {
+    padding: 150px 0 100px;
+  }
+
+  @include theme.lg {
+    padding: 200px 0 100px;
+
+    @include mixins.image-set($hero-bg, $hero-bg-webp, $hero-bg-avif);
+  }
 
 
   // .hero__container
@@ -22,7 +35,7 @@ $hero-bg-avif: url('../../../images/css/hero.avif');
     flex-flow: column;
     gap: 30px;
 
-    @include theme.md {
+    @include theme.lg {
       gap: 80px;
     }
   }
