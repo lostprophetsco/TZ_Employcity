@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/main.min.css?_v=20241030154938">
+  <title>Template</title>
+
+  <link rel="preload" as="image" href="./images/css/hero.avif" type="image/avif">
+  <link rel="preload" as="image" href="./images/css/hero.webp" type="image/webp">
+  <link rel="preload" as="image" href="./images/css/hero-mobile.avif" type="image/avif">
+  <link rel="preload" as="image" href="./images/css/hero-mobile.webp" type="image/webp">
+  <link rel="preload" as="image" href="./images/css/order.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="./images/sprite.svg" type="image/svg+xml">
+</head>
+
+  <body>
+    <header class="header">
+  <div class="container header__container">
+    <a href="/" class="header__logo logo">
+      <img src="./images/logo.svg" width="245" height="21" alt="logo">
+    </a>
+
+    <nav class="header__nav nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#" class="nav__link">Бизнес</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">О нас</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Цены</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Оформить заказ</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburger header__hamburger" aria-label="Открыть меню" aria-expanded="false"></button>
+  </div>
+</header>
+
+
+    <main class="main">
+      <section class="hero">
+  <div class="container hero__container">
+    <h1 class="hero__title">
+      <span>Lorem ipsum</span> dolor sit amet consectetur <span>adipiscing</span>
+    </h1>
+
+    <div class="hero__text">
+      <div class="hero__text-title">
+        At vero eos et accusamus et iusto odio dignissimos ducimus!
+      </div>
+      <ul class="hero__list">
+        <li class="hero__list-item">Totam rem aperiam eaque ipsa</li>
+        <li class="hero__list-item">Sit voluptatem accusantium doloremque laudantium</li>
+        <li class="hero__list-item">Sed ut perspiciatis, unde omnis iste natus error</li>
+      </ul>
+    </div>
+
+    <div class="hero__buttons">
+      <button class="button">Заказать</button>
+      <button class="button button--white">Подробнее</button>
+    </div>
+  </div>
+</section>
+ <section class="order">
+  <div class="container order__container">
+    <h2 class="order__title">Оформление <span>заказа</span></h2>
+
+    <div class="order__description">
+      Перед заполнением формы ознакомьтесь с нашей схемой работы!
+    </div>
+
+    <div class="order__steps">
+      <div class="order__step">
+        <div class="order__step-icon">
+          <svg width="55" height="55" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="./images/sprite.svg#icon-search"></use>
+          </svg>
+        </div>
+
+        <div class="order__step-text">Lorem ipsum dolor sit amet</div>
+      </div>
+
+      <div class="order__step">
+        <div class="order__step-icon">
+          <svg width="55" height="55" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="./images/sprite.svg#icon-percent"></use>
+          </svg>
+        </div>
+
+        <div class="order__step-text">Сonsecteturadipiscing elit</div>
+      </div>
+
+      <div class="order__step">
+        <div class="order__step-icon">
+          <svg width="55" height="55" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="./images/sprite.svg#icon-file"></use>
+          </svg>
+        </div>
+
+        <div class="order__step-text">Sed do eiusmod tempor</div>
+      </div>
+
+      <div class="order__step">
+        <div class="order__step-icon">
+          <svg width="55" height="55" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="./images/sprite.svg#icon-message"></use>
+          </svg>
+        </div>
+
+        <div class="order__step-text">Esse cillum dolore eu fugiat</div>
+      </div>
+
+      <div class="order__step">
+        <div class="order__step-icon">
+          <svg width="55" height="55" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="./images/sprite.svg#icon-money"></use>
+          </svg>
+        </div>
+
+        <div class="order__step-text">Excepteur sint occaecat cupidatat non proident</div>
+      </div>
+    </div>
+
+    <form action="#" class="order__form">
+      <div class="order__form-select">
+        <div class="custom-select">
+          <select name="systemType">
+            <option value="0">Выберите тип системы</option>
+            <option value="1">Sed ut perspiciatis</option>
+            <option value="2">Nemo enim ipsam</option>
+            <option value="3">Et harum quidem</option>
+            <option value="4">Temporibus autem</option>
+            <option value="5">Itaque earum rerum</option>
+            <option value="6">Sed ut perspiciatis</option>
+            <option value="7">Nemo enim ipsam</option>
+            <option value="8">Et harum quidem</option>
+            <option value="9">Temporibus autem</option>
+            <option value="10">Itaque earum rerum</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="order__form-text">
+        <input type="text" class="input-default" placeholder="Ваш e-mail" name="email">
+      </div>
+
+      <div class="order__form-text">
+        <input type="text" class="input-default" placeholder="Ваше имя" name="name">
+      </div>
+
+      <div class="order__form-range range">
+        <label for="range" class="range__label">
+          Sed ut perspiciatis, unde omnis iste natus
+          <span class="range__percent">75 %</span>
+        </label>
+        <input type="range" id="range" class="range__input" name="range" value="75">
+      </div>
+
+      <div class="order__form-file">
+        <button class="button button--has-icon" name="file">
+          <span class="button__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <use xlink:href="./images/sprite.svg#icon-upload"></use>
+            </svg>
+          </span>
+          Прикрепить файл
+        </button>
+      </div>
+
+      <div class="order__form-submit">
+        <button class="button" type="submit" name="submit">Заказать</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer"></footer>
+ <script src="js/main.min.js?_v=20241030154938"></script>
+
+  </body>
+</html>
