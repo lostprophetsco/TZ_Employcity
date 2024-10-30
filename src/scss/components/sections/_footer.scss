@@ -1,0 +1,108 @@
+@use '../../theme/theme' as theme;
+
+.footer {
+  padding: 30px 0;
+  background-color: var(--colors-background-gray);
+
+  // .footer__container
+  &__container {
+    @include theme.text-style-helper(t4);
+
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap);
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+
+		@include theme.lg {
+			flex-flow: row wrap;
+		}
+  }
+
+  // .footer__text
+  &__text {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    color: var(--colors-text-white);
+
+    // .footer__text::after
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none;
+      width: 1px;
+      height: 18px;
+      content: '';
+      background-color: var(--colors-text-gray);
+
+      @include theme.xl {
+        display: block;
+      }
+    }
+  }
+
+  // .footer__pay
+  &__pay {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    gap: 18px;
+    align-items: center;
+    color: var(--colors-text-light-gray);
+
+    @include theme.md {
+      gap: 38px;
+    }
+
+    // .footer__pay::after
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none;
+      width: 1px;
+      height: 18px;
+      content: '';
+      background-color: var(--colors-text-gray);
+
+      @include theme.xl {
+        display: block;
+      }
+    }
+  }
+
+  // .footer__pay-item
+  &__pay-item {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  // .footer__contacts
+  &__contacts {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    gap: 18px;
+    align-items: center;
+
+    @include theme.md {
+      gap: 38px;
+    }
+  }
+
+  // .footer__contact-link
+  &__contact-link {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+    color: var(--colors-text-white);
+    text-decoration: none;
+  }
+}
